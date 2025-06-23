@@ -28,7 +28,7 @@ def complete_next_task(queue):
         return
 
     highest = min(queue, key=lambda t: t["priority"])
-    print(f"\n✅ Completed Task: {highest['title']} (Duration: {highest['duration']} mins, Priority: {highest['priority']})")
+    print(f"\n Completed Task: {highest['title']} (Duration: {highest['duration']} mins, Priority: {highest['priority']})")
     queue.remove(highest)
 
 # Binary Search for a task by title (after sorting by title)
@@ -40,14 +40,14 @@ def search_for_task(queue, title):
     while low <= high:
         mid = (low + high) // 2
         if sorted_tasks[mid]["title"] == title:
-            print(f"\n🔍 Task Found: {sorted_tasks[mid]}")
+            print(f"\n Task Found: {sorted_tasks[mid]}")
             return
         elif sorted_tasks[mid]["title"] < title:
             low = mid + 1
         else:
             high = mid - 1
 
-    print("\n❌ Task not found.")
+    print("\n Task not found.")
 
 # Sort tasks by duration (ascending)
 def sort_tasks(queue):
@@ -74,7 +74,7 @@ for i in range(num_tasks):
     insert(task_queue, task)
 
 
-print("\n📋 All Tasks:")
+print("\n All Tasks:")
 for task in task_queue:
     print(task)
 
@@ -86,7 +86,7 @@ search_title = input("\nEnter task title to search for: ")
 search_for_task(task_queue, search_title)
 
 
-print("\n🕒 Tasks sorted by duration:")
+print("\n Tasks sorted by duration:")
 sorted_tasks = sort_tasks(task_queue)
 for task in sorted_tasks:
     print(task)
